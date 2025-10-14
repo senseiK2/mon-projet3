@@ -6,7 +6,12 @@
 #include "usart.h"
 #include "timer.h"
 #include "util.h"
+#include "freq.h"
+#include "arbre.h"
 
+uint8_t texte[] = "aaaabbbccd";
+uint32_t tabCaractere[256];
+struct noeud* arbreHuffman[256];
 
 int main(void)
 {
@@ -15,9 +20,18 @@ int main(void)
 	USART2_Init();
 	SYSTICK_Init();
 
-	while(1){
-		SYSTICK_Delay(1000);
-		GPIOA->ODR ^= 1<<5;
-		printf("Hello\r\n");
-	}
+	printf("\r\n\r\n\r\nStart\r\n");
+	occurence(texte, tabCaractere);
+	//AffTab(tabCaractere);
+
+	creerFeuille(arbreHuffman, tabCaractere);
+	afficheTabArbreHuffman(arbreHuffman, nbrCaractereDifferent);
+
+    printf("\n");
+
+	triArbre(arbreHuffman, nbrCaractereDifferent);
+	afficheTabArbreHuffman(arbreHuffman, nbrCaractereDifferent);
+
+	while(1);
+
 }
