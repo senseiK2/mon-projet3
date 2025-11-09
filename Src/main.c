@@ -8,6 +8,7 @@
 #include "util.h"
 #include "freq.h"
 #include "arbre.h"
+#include "code.h"
 
 uint8_t texte[] = "aaaabbbccd";
 uint32_t tabCaractere[256];
@@ -35,7 +36,7 @@ int main(void)
 	struct noeud *racine = CreeNoeud(arbreHuffman,nbrCaractereDifferent);
 	parcourirArbre(racine);
 
-	//creerCode(arbreHuffman,0,0);
+	creerCode(racine,0,0);
 
 	while(1);
 }
