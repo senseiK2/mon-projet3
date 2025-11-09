@@ -1,0 +1,34 @@
+# --- STM32CubeIDE / Eclipse ---
+.settings/
+.metadata/
+.vscode/
+.ipch/
+.cproject
+.project
+*.launch
+
+# --- Build directories ---
+Debug/
+Release/
+build/
+out/
+bin/
+obj/
+
+# --- Compiled files ---
+*.o
+*.elf
+*.bin
+*.hex
+*.map
+*.lst
+
+# --- Logs / Backups ---
+*.log
+*.bak
+*.tmp
+
+# --- System files ---
+.DS_Store
+Thumbs.db
+

@@ -22,7 +22,7 @@ int main(void)
 
 	printf("\r\n\r\n\r\nStart\r\n");
 	occurence(texte, tabCaractere);
-	//AffTab(tabCaractere);
+	AffTab(tabCaractere);
 
 	creerFeuille(arbreHuffman, tabCaractere);
 	afficheTabArbreHuffman(arbreHuffman, nbrCaractereDifferent);
@@ -32,6 +32,10 @@ int main(void)
 	triArbre(arbreHuffman, nbrCaractereDifferent);
 	afficheTabArbreHuffman(arbreHuffman, nbrCaractereDifferent);
 
-	while(1);
+	struct noeud *racine = CreeNoeud(arbreHuffman,nbrCaractereDifferent);
+	parcourirArbre(racine);
 
+	//creerCode(arbreHuffman,0,0);
+
+	while(1);
 }
