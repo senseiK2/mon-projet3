@@ -25,3 +25,30 @@ void creerCode(struct noeud* ptrNoeud,uint32_t code,uint32_t taille){
         creerCode(ptrNoeud ->gauche,(code<<1)+1,taille+1);
     }
 }
+
+
+struct noeud* getAddress(struct noeud* ptrNoeud, uint8_t caractere){
+    if (ptrNoeud == NULL){
+        return NULL;
+    }
+
+    if (ptrNoeud->gauche == NULL && ptrNoeud->droite == NULL) {
+        if (ptrNoeud->c == caractere){
+            return ptrNoeud;
+        }
+        else{
+            return NULL; 
+        }
+    }
+
+        struct noeud* gauche = getAddress(ptrNoeud->gauche, caractere);
+        if (gauche != NULL){
+            return gauche; 
+        }
+
+        struct noeud* droite = getAddress(ptrNoeud->droite, caractere);
+        if (droite != NULL){
+            return droite;
+        }
+}
+
