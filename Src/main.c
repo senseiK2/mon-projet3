@@ -39,5 +39,6 @@ int main(void)
 
 	creerCode(racine,0,0);
 
+	compresserTexte(texte,racine,texteCompress);
 	while(1);
 }

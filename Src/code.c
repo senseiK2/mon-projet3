@@ -65,11 +65,30 @@ struct noeud* getAddress(struct noeud* ptrNoeud, uint8_t caractere){
                 BitPos = 0;
                 bytePos ++;
             }
-             uint8_t bit = (code >> (TailleCode - 1)) & 0x1
+             uint8_t bit = (code >> (TailleCode - 1)) & 0x1;
             texteCompress[bytePos] |= (bit << (7 - BitPos));
             TailleCode --; 
             BitPos ++;
         } 
     } 
+    afficherBits(texteCompress, bytePos + 1, BitPos);
+}
+
+
+void afficherBits(uint8_t* texteCompress, uint32_t byteCount, uint8_t bitRestants){
+    for(uint32_t i = 0; i < byteCount; i++){
+        if(i == byteCount - 1){
+            for (int8_t j = 7; j > 7 - bitRestants; j--) {
+                printf("%d", (texteCompress[i] >> j) & 1);
+            }
+        }
+        else{
+            for (int8_t j = 7; j >= 0; j--) {
+                printf("%d", (texteCompress[i] >> j) & 1);
+            }
+        }
+        printf(" ");
+    }
+    printf("\n");
 }
 
