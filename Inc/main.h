@@ -13,4 +13,5 @@
 	#define BITMASK_4BITS	0b1111
 	#define BITMASK_5BITS	0b11111
 
+	#define TAILLE_MAX_COMPRESS 500
 #endif

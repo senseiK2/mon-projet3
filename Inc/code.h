@@ -6,4 +6,6 @@ void creerCode(struct noeud* ptrNoeud,uint32_t code,uint32_t taille);
 
 struct noeud* getAddress(struct noeud* ptrNoeud, uint8_t caractere);
 
+void compresserTexte(uint8_t* texte, struct noeud* racine, uint8_t texteCompress[]);
+
 #endif // CODE_H

@@ -52,3 +52,24 @@ struct noeud* getAddress(struct noeud* ptrNoeud, uint8_t caractere){
         }
 }
 
+
+ void compresserTexte(uint8_t* texte, struct noeud* racine, uint8_t texteCompress[]){ 
+    uint8_t BitPos = 0; 
+    uint8_t bytePos = 0; 
+    for(uint8_t i = 0; i < nbrCaractereTotal; i++){ 
+        struct noeud* feuille = getAddress(racine, texte[i]); 
+        uint32_t code = feuille -> code; 
+        uint32_t TailleCode = feuille -> tailleCode; 
+        while(TailleCode > 0){ 
+            if(BitPos == 8){
+                BitPos = 0;
+                bytePos ++;
+            }
+             uint8_t bit = (code >> (TailleCode - 1)) & 0x1
+            texteCompress[bytePos] |= (bit << (7 - BitPos));
+            TailleCode --; 
+            BitPos ++;
+        } 
+    } 
+}
+

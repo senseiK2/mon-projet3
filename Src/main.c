@@ -11,6 +11,7 @@
 #include "code.h"
 
 uint8_t texte[] = "aaaabbbccd";
+uint8_t texteCompress[TAILLE_MAX_COMPRESS] = {0};
 uint32_t tabCaractere[256];
 struct noeud* arbreHuffman[256];
 
