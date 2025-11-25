@@ -77,12 +77,20 @@ struct noeud* getAddress(struct noeud* ptrNoeud, uint8_t caractere){
 
 void afficherBits(uint8_t* texteCompress, uint32_t byteCount, uint8_t bitRestants){
     for(uint32_t i = 0; i < byteCount; i++){
+
+        // Saut de ligne toutes les 4 cases
+        if(i % 4 == 0 && i != 0){
+            printf("\n");
+        }
+
         if(i == byteCount - 1){
+            // Dernier octet → seulement les bits utiles
             for (int8_t j = 7; j > 7 - bitRestants; j--) {
                 printf("%d", (texteCompress[i] >> j) & 1);
             }
         }
         else{
+            // Octet complet
             for (int8_t j = 7; j >= 0; j--) {
                 printf("%d", (texteCompress[i] >> j) & 1);
             }
@@ -91,4 +99,5 @@ void afficherBits(uint8_t* texteCompress, uint32_t byteCount, uint8_t bitRestant
     }
     printf("\n");
 }
+
 

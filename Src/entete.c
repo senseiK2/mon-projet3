@@ -43,9 +43,9 @@ uint16_t TailleFichierComp(struct noeud* racine) {
 }
 
 void ajouterInfos(struct noeud* racine, uint8_t texteCompress[], uint16_t* pos) {
-    if (n == NULL) return;
+    if (racine == NULL) return;
 
-    if (n->gauche == NULL && n->droite == NULL) {
+    if (racine->gauche == NULL && racine->droite == NULL) {
         // ASCII
         texteCompress[(*pos)++] = racine->c;
 
@@ -79,7 +79,7 @@ void creerEntete(uint8_t texteCompress[], struct noeud* racine) {
         texteCompress[i + tailleEntete] = texteCompress[i];
     }
 
-    uint32_t pos = 0;
+    uint16_t pos = 0;
 
     texteCompress[pos++] = (tailleEntete >> 8) & 0xFF;
     texteCompress[pos++] = tailleEntete & 0xFF;
@@ -92,10 +92,7 @@ void creerEntete(uint8_t texteCompress[], struct noeud* racine) {
 
     int16_t nblettre = nbrCaractereDifferent;
 
-    while(nblettre > 0){
-        ajouterInfos(racine, texteCompress, pos);
-        nblettre--;
-    }
+    ajouterInfos(racine, texteCompress, &pos);
 
     afficherBits(texteCompress, tailleEntete + tailleCompressee, 8);
 }
