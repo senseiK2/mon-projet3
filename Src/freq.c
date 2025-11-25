@@ -9,8 +9,8 @@
 #include "arbre.h"
 #include "freq.h"
 
-uint32_t nbrCaractereTotal = 0;
-uint32_t nbrCaractereDifferent = 0;
+int16_t nbrCaractereTotal = 0;
+int16_t nbrCaractereDifferent = 0;
 
 void occurence(uint8_t* chaine, uint32_t tab[256]){
     uint8_t i = 0;
